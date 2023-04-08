@@ -3,27 +3,34 @@ import RegistrationScreen from './Screens/RegistrationScreen';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { Alert } from 'react-native';
+import LoginScreen from './Screens/LoginScreen';
 
 // SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [isRegistrationScreenOpen, setIsRegistrationScreenOpen] = useState(true);
-  const [isLoginScreenOpen, setisLoginScreenOpen] = useState(false);
+  const [isRegistrationScreenOpen, setIsRegistrationScreenOpen] = useState(false);
+  const [isLoginScreenOpen, setisLoginScreenOpen] = useState(true);
 
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('./assets/fonts/Roboto/Roboto-Regular.ttf'),
     'Roboto-Medium': require('./assets/fonts/Roboto/Roboto-Medium.ttf'),
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      console.log('fonts are loaded');
-    }
-  }, [fontsLoaded]);
+  const showLogScreen = () => {
+    setIsRegistrationScreenOpen(false);
+    setisLoginScreenOpen(true);
+  };
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  const showRegScreen = () => {
+    setIsRegistrationScreenOpen(true);
+    setisLoginScreenOpen(false);
+  };
 
-  return isRegistrationScreenOpen && <RegistrationScreen />;
+
+  return (
+    <>
+      {isRegistrationScreenOpen && <RegistrationScreen showLogScreen={showLogScreen} />}
+      {isLoginScreenOpen && <LoginScreen showRegScreen={showRegScreen} />}
+    </>
+  );
 }
