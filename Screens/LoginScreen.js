@@ -69,7 +69,7 @@ export default LoginScreen = props => {
         />
 
         {/* Form */}
-        <View style={{ ...styles.form, paddingBottom: isKeyboardVisible ? 32 : 78 }}>
+        <View style={{ ...styles.form, paddingBottom: isKeyboardVisible ? 32 : 144 }}>
           <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
             <Text style={styles.formTitle}>Войти</Text>
 
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   form: {
     // display: 'none',
     position: 'relative',
-    paddingBottom: 78,
+    paddingBottom: 144,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: '#FFFFFF',
