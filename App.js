@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import RegistrationScreen from './Screens/RegistrationScreen';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { Alert } from 'react-native';
+import LoginScreen from './Screens/LoginScreen';
+
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [isRegistrationScreenOpen, setIsRegistrationScreenOpen] = useState(false);
+  const [isLoginScreenOpen, setisLoginScreenOpen] = useState(true);
+
+  const [fontsLoaded] = useFonts({
+    'Roboto-Regular': require('./assets/fonts/Roboto/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('./assets/fonts/Roboto/Roboto-Medium.ttf'),
+  });
+
+  const showLogScreen = () => {
+    setIsRegistrationScreenOpen(false);
+    setisLoginScreenOpen(true);
+  };
+
+  const showRegScreen = () => {
+    setIsRegistrationScreenOpen(true);
+    setisLoginScreenOpen(false);
+  };
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      {isRegistrationScreenOpen && <RegistrationScreen showLogScreen={showLogScreen} />}
+      {isLoginScreenOpen && <LoginScreen showRegScreen={showRegScreen} />}
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
