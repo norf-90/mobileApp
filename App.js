@@ -26,7 +26,6 @@ export default function App() {
     setisLoginScreenOpen(false);
   };
 
-
   return (
     <>
       {isRegistrationScreenOpen && <RegistrationScreen showLogScreen={showLogScreen} />}

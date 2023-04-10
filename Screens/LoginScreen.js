@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     marginTop: 32,
     fontSize: 30,
     marginBottom: 33,
-    fontFamily: 'Roboto-Medium',
+    // fontFamily: 'Roboto-Medium',
     textAlign: 'center',
   },
   input: {
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     borderWidth: 1,
     borderRadius: 8,
-    fontFamily: 'Roboto-Regular',
+    // fontFamily: 'Roboto-Regular',
     fontSize: 16,
     backgroundColor: '#F6F6F6',
     color: '#212121',
@@ -202,12 +202,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: '400',
   },
   linkToLoginScreen: {},
   linkText: {
     color: '#1B4371',
-    fontWeight: 400,
+    fontWeight: '400',
     fontSize: 16,
     lineHeight: 19,
     textAlign: 'center',
